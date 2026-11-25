@@ -7,8 +7,6 @@ import { colorwayFor } from "@/lib/pack-colorways";
 import type { ShelfPack } from "@/lib/server/shelf";
 import { fmtUsd, packArtLabel, packKindLabel, type Rarity } from "@/lib/domain";
 
-const fmt = (n: number) => new Intl.NumberFormat("en-US").format(n);
-
 /*
   The rips stage.
 
@@ -139,8 +137,8 @@ export function RipStage({ packs, initialSlug, onBuy, busy, message, signedIn }:
 
       {/* stats */}
       <div className="mx-auto mt-7 grid max-w-[560px] grid-cols-3 items-start gap-2 text-center">
-        <Stat label="Min Value" value={active.minValue === 0 ? "Free" : fmt(active.minValue)} />
-        <Stat label="Max Pull" value={fmt(active.maxValue)} big />
+        <Stat label="Min Value" value={active.minValue === 0 ? "Free" : fmtUsd(active.minValue)} />
+        <Stat label="Max Pull" value={fmtUsd(active.maxValue)} big />
         <Stat label="Pool Size" value={`${active.poolSize}`} />
       </div>
 
@@ -236,7 +234,7 @@ function ChaseBadge({ card }: { card?: ShelfPack["topCards"][number] }) {
       <div className="mt-1.5 rounded-pill bg-gradient-to-b from-violet-bright to-violet-deep px-2.5 py-[3px] text-[9px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_4px_12px_rgba(76,29,149,0.6)]">
         Chase
       </div>
-      <div className="num mt-1 text-[9px] font-semibold text-ink-mute">{fmt(card.value)}</div>
+      <div className="num mt-1 text-[9px] font-semibold text-ink-mute">{fmtUsd(card.value)}</div>
     </div>
   );
 }

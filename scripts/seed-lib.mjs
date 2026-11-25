@@ -263,7 +263,7 @@ async function seedIfEmpty(client, log = console.log) {
      on conflict do nothing returning id`,
     ["vaultmaster", hashPassword(adminPassword)],
   );
-  if (admin.rows.length > 0) log(`admin user "vaultmaster" created (password: ${adminPassword})`);
+  if (admin.rows.length > 0) log('admin user "vaultmaster" created');
 
   return true;
 }

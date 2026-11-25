@@ -19,6 +19,7 @@
 
 # production
 /build
+/.pgdata/
 
 # misc
 .DS_Store
@@ -35,6 +36,13 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# local workspace artifacts
+/.abacusai-bot/
+/.cloud-attachments/
+/.freebuff/
+/.scratch/
+/.shots/
 
 # typescript
 *.tsbuildinfo

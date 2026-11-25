@@ -8,6 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "serve": "next start",
+    "db:deploy": "node scripts/deploy-db.mjs",
+    "start:render": "npm run db:deploy && next start",
     "lint": "eslint",
     "db:up": "node scripts/db.mjs up",
     "db:down": "node scripts/db.mjs down",
