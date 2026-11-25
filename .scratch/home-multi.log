@@ -1,0 +1,25 @@
+PASS · signed up — home7608627
+PASS · 10x prices the whole batch — Buy for $30.00
+PASS · overlay opens on the chosen 10 packs — data-qty=10
+PASS · shortfall is spelled out before the tear — 10 packs cost $30.00 — your balance is $7.00. You need $23.00 more: daily rewards or a smaller batch.
+PASS · rip has not started — phase=intro
+PASS · refused rip shows an error, not a stuck pack — phase=intro
+PASS · error names the cost and the shortfall — $30.00 for 10 packs — you have $7.00. You need $23.00 more: pick fewer packs, or earn more in daily rewards. Try again
+PASS · a Try again control is offered
+PASS · 10x on an affordable pack shows the batch total — Buy for $30.00
+PASS · the overlay rips the chosen 10 — data-qty=10
+PASS · server returned 10 cards — 10 cards
+PASS · one debit for the whole batch — cost=3000 qty=10
+PASS · ten cards are on screen during the rip — max figures=10
+FAIL · result totals the whole batch — BEST PULL · RARE · 10 CARDS · 
+PASS · SELL ALL and VAULT ALL are offered — VAULT ALL 10 / SELL ALL $5.22
+PASS · sell-all asks for confirmation first — CONFIRM SIMULATED SALE OF 10 CARDS · 10 cards
+PASS · sell-all paid the summed buyback — 522 vs 522
+PASS · resolution reports the batch — 10 CARDS SOLD ·  · $5.22 added · balance $975.22 ·  · RETURNING TO THE SHELF…
+PASS · all ten openings are sold in the database — [{"status":"sold","n":10}]
+PASS · one sale record per card — 10 sale rows
+PASS · one pack charge, not ten — 1 pack_open rows
+PASS · no openings from the refused rip — 0 -> 10
+
+1 CHECK(S) FAILED
+EXIT:1

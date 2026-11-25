@@ -1,0 +1,25 @@
+PASS · qty 10 selectable
+PASS · 10 card backs spin during the reel — spinning=10
+PASS · ten packs return ten cards — cards=10
+PASS · ten opening ids
+PASS · one debit for ten packs — cost=750
+PASS · ten pending openings written — {"n":10,"pending":10}
+PASS · single pack_open transaction — {"n":1,"total":-750}
+PASS · balance debited once — 100000 -> 99250
+PASS · ten cards dealt into the result — dealt=10
+PASS · result shows the batch total — BEST PULL · UNCOMMON
+PASS · result has VAULT ALL and SELL ALL
+PASS · all ten sold — {"n":10,"total":192}
+PASS · payout equals the batch sell total — 192 vs 192
+PASS · balance credited once with the batch total — 99250 -> 99442
+PASS · one history row per sold card — {"n":10,"total":192}
+PASS · qty 2 selectable
+PASS · 2-pack rip returns 2 cards — cards=2
+PASS · qty 5 selectable
+PASS · 5-pack rip returns 5 cards — cards=5
+PASS · vault all kept 7 cards in the collection — vaulted=7
+PASS · collection lists the vaulted batch
+PASS · single rip shows one card result
+
+22/22 checks passed
+EXIT:0

@@ -1,0 +1,41 @@
+PASS · TEST 8 · account created through the signup route — "codex85934012"
+PASS · TEST 8a · new account balance is $0.00 — credits=0
+PASS · TEST 8b · starter pack not yet opened
+PASS · TEST 8c · header shows $0.00 — header=$0.00
+PASS · TEST 8d · starter pack is on the shelf — 1 links
+PASS · TEST 9a · starter guarantee disclosed — pack page mentions $5.00
+PASS · TEST 9b · one card returned for the rip
+PASS · TEST 9c · exactly one opening written — openings=1
+PASS · TEST 9d · starter card is worth at least $5.00 — 959 cents
+PASS · TEST 1a · card identity hidden during the spin — no name/set number in DOM
+PASS · TEST 4a · result screen not rendered early
+PASS · TEST 10a · landed banner matches the drawn rarity — banner="ULTRA RARE RARITY LOCKED" vs Ultra Rare
+PASS · TEST 1b · card still hidden at the landing beat
+PASS · TEST 4b · card revealed only at the result — result shows the card
+PASS · TEST 10b · result rarity matches the card — dom=ultra card=ultra
+PASS · TEST 10c · DB rarity matches the animated rarity
+PASS · TEST 3a · result shows market / collection / sell values — dollar formatting present
+PASS · TEST 5a · opening is vaulted in the database — vaulted
+PASS · TEST 5b · card appears in the collection — Arbok ex
+PASS · TEST 5c · collection shows a market reference column
+PASS · TEST 7a · collection persists after refresh
+PASS · TEST 7b · balance persists after refresh — header=$0.00
+PASS · TEST 6a · opening is sold in the database — sold
+PASS · TEST 6b · sale paid the disclosed buyback — 11 vs 11
+PASS · TEST 6c · balance credited exactly once — 19925 -> 19936 (+11)
+PASS · TEST 6d · one sale transaction recorded — {"n":1,"total":11}
+PASS · TEST 6e · sold card is not in the active collection — Zubat
+PASS · TEST 6f · header balance reflects the sale — header=$199.36 before=$0.00
+PASS · TEST 6g · sale appears in the transaction history — history lists the sold card
+PASS · TEST 6h · history shows pack spends and sales
+FAIL · TEST 3 · secret draw landed on Secret Rare — SECRET RARE RARITY LOCKED
+FAIL · TEST 2 · ultra draw landed on Ultra Rare — ULTRA RARE RARITY LOCKED
+PASS · TEST 2/3 · high-rarity draws observed — secret+ultra
+[console] Failed to load resource: the server responded with a status of 402 (Payment Required)
+PASS · TEST 8e · starter pack cannot be opened twice — openings=1 · message shown
+[console] Failed to load resource: the server responded with a status of 409 (Conflict)
+PASS · TEST 10d · unknown opening id is rejected — status=409
+
+33/35 checks passed
+FAILED: TEST 3 · secret draw landed on Secret Rare | TEST 2 · ultra draw landed on Ultra Rare
+EXIT:1

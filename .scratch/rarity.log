@@ -1,0 +1,6 @@
+PASS · secret draw → banner "SECRET RARE RARITY LOCKED"
+PASS · ultra draw → banner "ULTRA RARE RARITY LOCKED"
+
+observed: secret, ultra
+ALL RARITY CHECKS PASSED
+EXIT:0

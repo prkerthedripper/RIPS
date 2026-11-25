@@ -1,0 +1,27 @@
+PASS · qty 10 selectable
+PASS · 10 card backs spin during the reel — spinning=10
+PASS · ten packs return ten cards — cards=10
+PASS · ten opening ids
+PASS · one debit for ten packs — cost=750
+PASS · ten pending openings written — {"n":10,"pending":10}
+PASS · single pack_open transaction — {"n":1,"total":-750}
+PASS · balance debited once — 100000 -> 99250
+node:internal/fs/promises:745
+      (await PromisePrototypeThen(
+       ^
+
+Error: ENOSPC: no space left on device, write
+    at async write (node:internal/fs/promises:745:8)
+    at async writeFileHandle (node:internal/fs/promises:502:7)
+    at async Object.writeFile (file:///C:/Users/ajube/.zcode/workspace/draft-c94f167a-6838-4406-8b33-ae47bb564bfb/node_modules/puppeteer-core/lib/puppeteer/node-env-setup.js:46:13)
+    at async CdpPage._maybeWriteTypedArrayToFile (file:///C:/Users/ajube/.zcode/workspace/draft-c94f167a-6838-4406-8b33-ae47bb564bfb/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:846:13)
+    at async CdpPage.screenshot (file:///C:/Users/ajube/.zcode/workspace/draft-c94f167a-6838-4406-8b33-ae47bb564bfb/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:1184:17)
+    at async CdpPage.<anonymous> (file:///C:/Users/ajube/.zcode/workspace/draft-c94f167a-6838-4406-8b33-ae47bb564bfb/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:164:24)
+    at async file:///C:/Users/ajube/.zcode/workspace/draft-c94f167a-6838-4406-8b33-ae47bb564bfb/.scratch/multi.mjs:130:1 {
+  errno: -4055,
+  code: 'ENOSPC',
+  syscall: 'write'
+}
+
+Node.js v24.18.0
+EXIT:1

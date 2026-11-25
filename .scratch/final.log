@@ -1,0 +1,31 @@
+PASS · TEST 8 · account created through the signup route — "codex85736828"
+PASS · TEST 8a · new account balance is $0.00 — credits=0
+PASS · TEST 8b · starter pack not yet opened
+PASS · TEST 8c · header shows $0.00 — header=$0.00
+PASS · TEST 8d · starter pack is on the shelf — 1 links
+PASS · TEST 9a · starter guarantee disclosed — pack page mentions $5.00
+PASS · TEST 9b · one card returned for the rip
+PASS · TEST 9c · exactly one opening written — openings=1
+PASS · TEST 9d · starter card is worth at least $5.00 — 8890 cents
+PASS · TEST 1a · card identity hidden during the spin — no name/set number in DOM
+PASS · TEST 4a · result screen not rendered early
+PASS · TEST 10a · landed banner matches the drawn rarity — banner="SECRET RARE RARITY LOCKED" vs Secret Rare
+PASS · TEST 1b · card still hidden at the landing beat
+PASS · TEST 4b · card revealed only at the result — result shows the card
+PASS · TEST 10b · result rarity matches the card — dom=secret card=secret
+PASS · TEST 10c · DB rarity matches the animated rarity
+PASS · TEST 3a · result shows market / collection / sell values — dollar formatting present
+PASS · TEST 5a · opening is vaulted in the database — vaulted
+PASS · TEST 5b · card appears in the collection — Bulbasaur
+PASS · TEST 5c · collection shows a market reference column
+PASS · TEST 7a · collection persists after refresh
+PASS · TEST 7b · balance persists after refresh — header=$0.00
+PASS · TEST 6a · opening is sold in the database — sold
+PASS · TEST 6b · sale paid the disclosed buyback — 17 vs 17
+PASS · TEST 6c · balance credited exactly once — 19925 -> 19942 (+17)
+PASS · TEST 6d · one sale transaction recorded — {"n":1,"total":17}
+PASS · TEST 6e · sold card is not in the active collection — Eevee
+PASS · TEST 6f · header balance reflects the sale — header=$199.42 before=$0.00
+PASS · TEST 6g · sale appears in the transaction history — history lists the sold card
+PASS · TEST 6h · history shows pack spends and sales
+FAIL · TEST 3 · secret draw landed on Secret Rare

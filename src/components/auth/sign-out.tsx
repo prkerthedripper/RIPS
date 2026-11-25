@@ -1,0 +1,25 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export function SignOutButton() {
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+
+  return (
+    <button
+      type="button"
+      disabled={busy}
+      onClick={async () => {
+        setBusy(true);
+        await fetch("/api/auth/logout", { method: "POST" }).catch(() => null);
+        router.push("/");
+        router.refresh();
+      }}
+      className="btn btn-quiet btn-sm"
+    >
+      {busy ? "Signing out…" : "Sign out"}
+    </button>
+  );
+}

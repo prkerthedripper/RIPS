@@ -1,0 +1,51 @@
+{
+  "name": "draft-c94f167a-6838-4406-8b33-ae47bb564bfb",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/dev.mjs",
+    "preview": "next build && next start -p 3000",
+    "dev": "next dev",
+    "build": "next build",
+    "serve": "next start",
+    "lint": "eslint",
+    "db:up": "node scripts/db.mjs up",
+    "db:down": "node scripts/db.mjs down",
+    "db:reset": "node scripts/db.mjs reset",
+    "db:status": "node scripts/db.mjs status"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@supabase/supabase-js": "^2.119.2",
+    "geist": "^1.9.2",
+    "lucide-react": "^1.78.0",
+    "motion": "^14.14.0",
+    "next": "16.4.6",
+    "pg": "^8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "^0.187.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.187.0",
+    "embedded-postgres": "^18.6.0-beta.19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "puppeteer-core": "^25.18.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  },
+  "allowScripts": {
+    "@embedded-postgres/windows-x64@18.6.0-beta.19": true,
+    "esbuild@0.28.2": true
+  }
+}

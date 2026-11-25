@@ -1,0 +1,780 @@
+@import "tailwindcss";
+
+/*
+  RIPS by FCargo — design system
+
+  Dark, cinematic, product-first. The palette comes from the foil packs:
+  near-black plum ground, one violet action colour, rose-gold for the
+  primary buy action, and lime for add-credit. Rarity colours are used for
+  rarity only.
+*/
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-800.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rips Display";
+  src: url("/fonts/barlow-condensed-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rips Display";
+  src: url("/fonts/barlow-condensed-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  /* Surfaces — near-black with a plum cast */
+  --bg: #0b0710;
+  --bg-deep: #07040b;
+  --bg-rail: #100a16;
+  --surface: #16101f;
+  --surface-2: #1d1428;
+  --surface-3: #271a35;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --line-violet: rgba(139, 92, 246, 0.45);
+
+  /* Ink */
+  --ink: #f6f2f8;
+  --ink-soft: #c3b9cc;
+  --ink-mute: #8f8399;
+  --ink-faint: #635a6d;
+
+  /* Violet — primary action, nav, focus */
+  --violet: #7c3aed;
+  --violet-bright: #9d5cff;
+  --violet-deep: #4c1d95;
+  --violet-soft: rgba(124, 58, 237, 0.16);
+
+  /* Rose gold — the buy action and premium foil */
+  --rose: #d99a8a;
+  --rose-bright: #eab4a5;
+  --rose-deep: #9c5f52;
+  --rose-ink: #24100c;
+
+  /* Lime — add credit / positive */
+  --lime: #a3e635;
+  --lime-deep: #4d7c0f;
+
+  /* Rarity */
+  /* Mirrors src/lib/rarities.ts — that file is the source of truth. */
+  --rarity-common: #a9b1bd;
+  --rarity-uncommon: #4ade80;
+  --rarity-rare: #38bdf8;
+  --rarity-ultra: #c084fc;
+  --rarity-secret: #fbbf24;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Rips Display", "Outfit", ui-sans-serif, sans-serif;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-rail: var(--bg-rail);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-line-violet: var(--line-violet);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-violet: var(--violet);
+  --color-violet-bright: var(--violet-bright);
+  --color-violet-deep: var(--violet-deep);
+  --color-violet-soft: var(--violet-soft);
+
+  --color-rose: var(--rose);
+  --color-rose-bright: var(--rose-bright);
+  --color-rose-deep: var(--rose-deep);
+  --color-rose-ink: var(--rose-ink);
+
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+
+  --color-common: var(--rarity-common);
+  --color-uncommon: var(--rarity-uncommon);
+  --color-rare: var(--rarity-rare);
+  --color-ultra: var(--rarity-ultra);
+  --color-secret: var(--rarity-secret);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+}
+
+html {
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.4);
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet-bright);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+@layer components {
+  /* ── Type ─────────────────────────────────────────────── */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    line-height: 0.94;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-size: clamp(22px, 2.4vw, 30px);
+  }
+
+  .label-micro {
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .lede {
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-size: 15px;
+    text-wrap: pretty;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* ── Layout ───────────────────────────────────────────── */
+  .shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 28px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 40px;
+    }
+  }
+
+  .page-bg {
+    background:
+      radial-gradient(70% 42% at 50% 0%, rgba(88, 32, 110, 0.34), transparent 72%),
+      radial-gradient(50% 40% at 8% 18%, rgba(124, 58, 237, 0.14), transparent 70%),
+      radial-gradient(46% 40% at 96% 62%, rgba(217, 154, 138, 0.08), transparent 72%),
+      linear-gradient(180deg, #0d0813 0%, #0b0710 55%, #08050c 100%);
+  }
+
+  /* ── Surfaces ─────────────────────────────────────────── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .panel-raised {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .hairline-b {
+    border-bottom: 1px solid var(--line);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--line);
+  }
+
+  /* ── Buttons ──────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding-inline: 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease,
+      transform 120ms ease,
+      box-shadow 150ms ease;
+    user-select: none;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .btn-violet {
+    background: linear-gradient(180deg, #8b45f5, #6d28d9);
+    color: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 8px 20px rgba(76, 29, 149, 0.5);
+  }
+  .btn-violet:hover {
+    background: linear-gradient(180deg, #9d5cff, #7c3aed);
+  }
+
+  .btn-rose {
+    background: linear-gradient(180deg, #eab4a5 0%, #d99a8a 48%, #c48474 100%);
+    color: #2a120d;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 10px 26px rgba(156, 95, 82, 0.4);
+  }
+  .btn-rose:hover {
+    background: linear-gradient(180deg, #f2c3b4 0%, #e3a695 48%, #cc8c7c 100%);
+  }
+
+  .btn-quiet {
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+  }
+  .btn-quiet:hover {
+    background: var(--surface-3);
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--ink-soft);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--ink);
+  }
+
+  .btn-lg {
+    height: 52px;
+    padding-inline: 26px;
+    font-size: 16px;
+    border-radius: var(--radius-md);
+  }
+  .btn-sm {
+    height: 32px;
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+
+  /* ── Chips & pills ────────────────────────────────────── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 26px;
+    padding-inline: 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--line-strong);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Foil sheen used on pack artwork and primary CTA */
+  .foil-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .foil-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      rgba(255, 255, 255, 0.18) 45%,
+      rgba(255, 255, 255, 0.04) 52%,
+      transparent 64%
+    );
+    transform: translateX(-120%);
+    transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .group:hover .foil-sheen::after,
+  .foil-sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  .glow-violet {
+    box-shadow:
+      0 0 0 1px rgba(139, 92, 246, 0.5),
+      0 18px 44px rgba(76, 29, 149, 0.45);
+  }
+
+  .rarity-common {
+    color: var(--rarity-common);
+  }
+  .rarity-uncommon {
+    color: var(--rarity-uncommon);
+  }
+  .rarity-rare {
+    color: var(--rarity-rare);
+  }
+  .rarity-ultra {
+    color: var(--rarity-ultra);
+  }
+  .rarity-secret {
+    color: var(--rarity-secret);
+  }
+}
+
+/* ── Pack artwork (real-time 3D) ─────────────── */
+
+.pack-art {
+  position: relative;
+  display: block;
+  flex: none;
+  isolation: isolate;
+}
+
+.pack-art > * {
+  position: absolute;
+  inset: 0;
+}
+
+.pack-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.pack-mesh-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: pack-art-in 480ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.pack-mesh-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  opacity: 0.55;
+}
+
+@keyframes pack-art-in {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Pokémon card ─────────────────────────────────────────── */
+
+.tcg-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --px: 50%;
+  --py: 50%;
+  position: relative;
+  display: block;
+  border-radius: 4.6% / 3.4%;
+  transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition:
+    transform 180ms ease-out,
+    box-shadow 200ms ease-out;
+  will-change: transform;
+  background: #0d0a12;
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.tcg-card:hover {
+  box-shadow:
+    0 34px 60px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.tcg-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4.6% / 3.4%;
+  position: relative;
+  z-index: 1;
+}
+
+.tcg-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 4.6% / 3.4%;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at var(--px) var(--py), rgba(255, 255, 255, 0.8), transparent 22%),
+    linear-gradient(
+      122deg,
+      transparent 26%,
+      rgba(120, 220, 255, 0.4) 42%,
+      rgba(255, 246, 170, 0.45) 50%,
+      rgba(230, 160, 255, 0.36) 58%,
+      transparent 72%
+    );
+  transform: translateZ(6px);
+}
+
+.tcg-card[data-tier="common"] .tcg-shine {
+  opacity: 0.1;
+}
+.tcg-card[data-tier="uncommon"] .tcg-shine {
+  opacity: 0.18;
+}
+.tcg-card[data-tier="rare"] .tcg-shine {
+  opacity: 0.34;
+}
+.tcg-card[data-tier="ultra"] .tcg-shine {
+  opacity: 0.46;
+}
+.tcg-card[data-tier="secret"] .tcg-shine {
+  opacity: 0.6;
+}
+
+/* ── Reveal choreography ──────────────────────────────────── */
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes spin-flip {
+  0% {
+    transform: perspective(1400px) rotateY(0deg) rotateZ(0deg) scale(0.86);
+  }
+  45% {
+    transform: perspective(1400px) rotateY(540deg) rotateZ(6deg) scale(1);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(1080deg) rotateZ(0deg) scale(1);
+  }
+}
+
+@keyframes reveal-in {
+  0% {
+    opacity: 0;
+    transform: perspective(1400px) rotateY(1080deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1400px) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-140%) skewX(-12deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(140%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.anim-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+.anim-spin-flip {
+  animation: spin-flip 1300ms cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+.anim-reveal {
+  animation: reveal-in 620ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+.anim-rise {
+  animation: rise-in 500ms ease-out both;
+}
+.anim-sweep {
+  animation: sweep 900ms ease-out forwards;
+}
+.anim-pulse-ring {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+/* ── Sparkle field ────────────────────────────────────────── */
+
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 210, 160, 0.15) 55%, transparent 70%);
+  animation: twinkle 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-spin-flip {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ── Interactive rip ──────────────────────────────────────── */
+
+.rip-hint {
+  animation: rip-hint 2.6s ease-in-out infinite;
+}
+
+@keyframes rip-hint {
+  0%,
+  100% {
+    opacity: 0.84;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.rip-flash {
+  animation: rip-flash 780ms ease-out forwards;
+  mix-blend-mode: screen;
+}
+
+@keyframes rip-flash {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  38% {
+    opacity: 0.14;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.rip-rainbow {
+  background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #47cf73, #35c7f5, #8b5cf6, #ff5f6d);
+  mix-blend-mode: screen;
+  filter: blur(36px) hue-rotate(0deg);
+  animation: rip-rainbow 7s linear infinite;
+}
+
+@keyframes rip-rainbow {
+  0% {
+    filter: blur(36px) hue-rotate(0deg);
+  }
+  100% {
+    filter: blur(36px) hue-rotate(360deg);
+  }
+}
+
+.rip-rise {
+  animation: rise-in 460ms cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+
+/* Multi-pack pull: backs spin in a stack, then deal out and flip over. */
+.rip-card-spin {
+  transform-style: preserve-3d;
+  animation: rip-card-spin 1.05s linear infinite;
+}
+
+@keyframes rip-card-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.rip-card-deal {
+  transform-style: preserve-3d;
+  animation: rip-card-deal 420ms cubic-bezier(0.2, 0.85, 0.25, 1) both;
+}
+
+@keyframes rip-card-deal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotateY(-180deg) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rip-card-back {
+  background:
+    radial-gradient(70% 55% at 50% 40%, rgba(190, 130, 255, 0.32), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4px),
+    linear-gradient(140deg, #2c1550 0%, #1a0c31 48%, #0a0514 100%);
+}
